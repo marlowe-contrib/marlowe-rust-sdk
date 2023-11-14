@@ -1,0 +1,9 @@
+[package]
+name = "marlowe_rust_sdk"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+marlowe_client = { path = "./marlowe_client" }
