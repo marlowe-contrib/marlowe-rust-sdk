@@ -29,15 +29,19 @@ jobs:
         run: echo "HI $API_SPECS_CHANGED $FILE_PATH"
 
       - name: Set up Node.js
+        if: ENV.API_SPECS_CHANGED
         uses: actions/setup-node@v3
 
       - name: Remove previously generated code
+        if: ENV.API_SPECS_CHANGED
         run: cd marlowe_client;xargs rm -rf < .openapi-generator/FILES; cd ..
 
       - name: Generate rust code from specs
+        if: ENV.API_SPECS_CHANGED
         run: npx @openapitools/openapi-generator-cli generate -g rust -i openapi.json  --additional-properties=packageName=marlowe_client -o marlowe_client
 
-      - name: API CLIENT CODEGEN
+      - name: Create pull request
+        if: ENV.API_SPECS_CHANGED
         uses: peter-evans/create-pull-request@v5
         with:
           commit-message: feat(MarloweAPIClient):api client update
