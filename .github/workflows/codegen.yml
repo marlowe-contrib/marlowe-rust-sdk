@@ -1,5 +1,8 @@
 name: Rust code from specs
-on: push
+on: 
+  push:
+    branches:
+      - main
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -49,7 +52,5 @@ jobs:
           body: |
             This PR updates the MarloweAPIClient project based on the specs described in `openapi.json`
             To check if this newly generated code is functional, run `cargo build` in the root folder of the project.
-
-            This because of an [issue][1] on openapi-generator's package.
 
           branch: api-client-codegen
