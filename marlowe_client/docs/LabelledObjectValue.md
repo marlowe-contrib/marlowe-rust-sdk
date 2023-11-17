@@ -42,7 +42,7 @@ Name | Type | Description | Notes
 **r#let** | **String** |  | 
 **assert** | [**crate::models::ObservationObject**](ObservationObject.md) |  | 
 **role_token** | **String** |  | 
-**address** | **String** | A cardano address | 
+**address** | **String** | A cardano address, in Bech32 format | 
 **currency_symbol** | **String** |  | 
 **token_name** | **String** |  | 
 **deposits** | [**crate::models::Value**](Value.md) |  | 

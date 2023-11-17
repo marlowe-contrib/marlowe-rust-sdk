@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **role_token** | **String** |  | 
-**address** | **String** | A cardano address | 
+**address** | **String** | A cardano address, in Bech32 format | 
 **currency_symbol** | **String** |  | 
 **token_name** | **String** |  | 
 
