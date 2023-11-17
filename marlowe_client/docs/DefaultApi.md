@@ -1,153 +1,38 @@
 # \DefaultApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://marlowe-runtime-preprod-web.scdev.aws.iohkdev.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**contracts_contract_id_get**](DefaultApi.md#contracts_contract_id_get) | **GET** /contracts/{contractId} | 
-[**contracts_contract_id_next_get**](DefaultApi.md#contracts_contract_id_next_get) | **GET** /contracts/{contractId}/next | 
-[**contracts_contract_id_put**](DefaultApi.md#contracts_contract_id_put) | **PUT** /contracts/{contractId} | 
-[**contracts_contract_id_transactions_get**](DefaultApi.md#contracts_contract_id_transactions_get) | **GET** /contracts/{contractId}/transactions | 
-[**contracts_contract_id_transactions_post**](DefaultApi.md#contracts_contract_id_transactions_post) | **POST** /contracts/{contractId}/transactions | 
-[**contracts_contract_id_transactions_transaction_id_get**](DefaultApi.md#contracts_contract_id_transactions_transaction_id_get) | **GET** /contracts/{contractId}/transactions/{transactionId} | 
-[**contracts_contract_id_transactions_transaction_id_put**](DefaultApi.md#contracts_contract_id_transactions_transaction_id_put) | **PUT** /contracts/{contractId}/transactions/{transactionId} | 
-[**contracts_get**](DefaultApi.md#contracts_get) | **GET** /contracts | 
-[**contracts_post**](DefaultApi.md#contracts_post) | **POST** /contracts | 
-[**contracts_sources_contract_source_id_adjacency_get**](DefaultApi.md#contracts_sources_contract_source_id_adjacency_get) | **GET** /contracts/sources/{contractSourceId}/adjacency | 
-[**contracts_sources_contract_source_id_closure_get**](DefaultApi.md#contracts_sources_contract_source_id_closure_get) | **GET** /contracts/sources/{contractSourceId}/closure | 
-[**contracts_sources_contract_source_id_get**](DefaultApi.md#contracts_sources_contract_source_id_get) | **GET** /contracts/sources/{contractSourceId} | 
-[**contracts_sources_post**](DefaultApi.md#contracts_sources_post) | **POST** /contracts/sources | 
-[**healthcheck_get**](DefaultApi.md#healthcheck_get) | **GET** /healthcheck | 
-[**payouts_get**](DefaultApi.md#payouts_get) | **GET** /payouts | 
-[**payouts_payout_id_get**](DefaultApi.md#payouts_payout_id_get) | **GET** /payouts/{payoutId} | 
-[**withdrawals_get**](DefaultApi.md#withdrawals_get) | **GET** /withdrawals | 
-[**withdrawals_post**](DefaultApi.md#withdrawals_post) | **POST** /withdrawals | 
-[**withdrawals_withdrawal_id_get**](DefaultApi.md#withdrawals_withdrawal_id_get) | **GET** /withdrawals/{withdrawalId} | 
-[**withdrawals_withdrawal_id_put**](DefaultApi.md#withdrawals_withdrawal_id_put) | **PUT** /withdrawals/{withdrawalId} | 
+[**apply_inputs_to_contract**](DefaultApi.md#apply_inputs_to_contract) | **POST** /contracts/{contractId}/transactions | Apply inputs to contract
+[**create_contract**](DefaultApi.md#create_contract) | **POST** /contracts | Create a new contract
+[**create_contract_sources**](DefaultApi.md#create_contract_sources) | **POST** /contracts/sources | Upload contract sources
+[**get_contract_by_id**](DefaultApi.md#get_contract_by_id) | **GET** /contracts/{contractId} | Get contract by ID
+[**get_contract_source_adjacency**](DefaultApi.md#get_contract_source_adjacency) | **GET** /contracts/sources/{contractSourceId}/adjacency | Get adjacent contract source IDs by ID
+[**get_contract_source_by_id**](DefaultApi.md#get_contract_source_by_id) | **GET** /contracts/sources/{contractSourceId} | Get contract source by ID
+[**get_contract_source_closure**](DefaultApi.md#get_contract_source_closure) | **GET** /contracts/sources/{contractSourceId}/closure | Get contract source closure by ID
+[**get_contract_transaction_by_id**](DefaultApi.md#get_contract_transaction_by_id) | **GET** /contracts/{contractId}/transactions/{transactionId} | Get contract transaction by ID
+[**get_contracts**](DefaultApi.md#get_contracts) | **GET** /contracts | Get contracts
+[**get_next_steps_for_contract**](DefaultApi.md#get_next_steps_for_contract) | **GET** /contracts/{contractId}/next | Get next contract steps
+[**get_payout_by_id**](DefaultApi.md#get_payout_by_id) | **GET** /payouts/{payoutId} | Get payout by ID
+[**get_payouts**](DefaultApi.md#get_payouts) | **GET** /payouts | Get role payouts
+[**get_transactions_for_contract**](DefaultApi.md#get_transactions_for_contract) | **GET** /contracts/{contractId}/transactions | Get transactions for contract
+[**get_withdrawal_by_id**](DefaultApi.md#get_withdrawal_by_id) | **GET** /withdrawals/{withdrawalId} | Get withdrawal by ID
+[**get_withdrawals**](DefaultApi.md#get_withdrawals) | **GET** /withdrawals | Get withdrawals
+[**healthcheck**](DefaultApi.md#healthcheck) | **GET** /healthcheck | Test server status
+[**submit_contract**](DefaultApi.md#submit_contract) | **PUT** /contracts/{contractId} | Submit contract to chain
+[**submit_contract_transaction**](DefaultApi.md#submit_contract_transaction) | **PUT** /contracts/{contractId}/transactions/{transactionId} | Submit contract input application
+[**submit_withdrawal**](DefaultApi.md#submit_withdrawal) | **PUT** /withdrawals/{withdrawalId} | Submit payout withdrawal
+[**withdraw_payouts**](DefaultApi.md#withdraw_payouts) | **POST** /withdrawals | Withdraw payouts
 
 
 
-## contracts_contract_id_get
+## apply_inputs_to_contract
 
-> crate::models::ContractsContractIdGet200Response contracts_contract_id_get(contract_id)
+> crate::models::ApplyInputsResponse apply_inputs_to_contract(contract_id, x_change_address, x_address, x_collateral_utx_o, post_transactions_request)
+Apply inputs to contract
 
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**contract_id** | **String** |  | [required] |
-
-### Return type
-
-[**crate::models::ContractsContractIdGet200Response**](_contracts__contractId__get_200_response.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## contracts_contract_id_next_get
-
-> crate::models::Next contracts_contract_id_next_get(contract_id, validity_start, validity_end, party)
-
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**contract_id** | **String** |  | [required] |
-**validity_start** | **String** |  | [required] |
-**validity_end** | **String** |  | [required] |
-**party** | Option<[**Vec<String>**](String.md)> |  |  |
-
-### Return type
-
-[**crate::models::Next**](Next.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## contracts_contract_id_put
-
-> contracts_contract_id_put(contract_id, text_envelope)
-
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**contract_id** | **String** |  | [required] |
-**text_envelope** | Option<[**TextEnvelope**](TextEnvelope.md)> |  |  |
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json;charset=utf-8
-- **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## contracts_contract_id_transactions_get
-
-> crate::models::ListObjectTxHeader contracts_contract_id_transactions_get(contract_id, range)
-
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**contract_id** | **String** |  | [required] |
-**range** | Option<**String**> |  |  |
-
-### Return type
-
-[**crate::models::ListObjectTxHeader**](ListObject_TxHeader.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## contracts_contract_id_transactions_post
-
-> crate::models::ContractsContractIdTransactionsPost201Response contracts_contract_id_transactions_post(contract_id, x_change_address, x_address, x_collateral_utx_o, post_transactions_request)
-
+Build an unsigned (Cardano) transaction body which applies inputs to an open Marlowe contract. This unsigned transaction must be signed by a wallet (such as a CIP-30 or CIP-45 wallet) before being submitted. To submit the signed transaction, use the PUT /contracts/{contractId}/transactions/{transactionId} endpoint.
 
 ### Parameters
 
@@ -162,7 +47,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ContractsContractIdTransactionsPost201Response**](_contracts__contractId__transactions_post_201_response.md)
+[**crate::models::ApplyInputsResponse**](ApplyInputsResponse.md)
 
 ### Authorization
 
@@ -176,101 +61,12 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## contracts_contract_id_transactions_transaction_id_get
+## create_contract
 
-> crate::models::ContractsContractIdTransactionsTransactionIdGet200Response contracts_contract_id_transactions_transaction_id_get(contract_id, transaction_id)
+> crate::models::CreateContractResponse create_contract(x_change_address, x_stake_address, x_address, x_collateral_utx_o, post_contracts_request)
+Create a new contract
 
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**contract_id** | **String** |  | [required] |
-**transaction_id** | **String** |  | [required] |
-
-### Return type
-
-[**crate::models::ContractsContractIdTransactionsTransactionIdGet200Response**](_contracts__contractId__transactions__transactionId__get_200_response.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## contracts_contract_id_transactions_transaction_id_put
-
-> contracts_contract_id_transactions_transaction_id_put(contract_id, transaction_id, text_envelope)
-
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**contract_id** | **String** |  | [required] |
-**transaction_id** | **String** |  | [required] |
-**text_envelope** | Option<[**TextEnvelope**](TextEnvelope.md)> |  |  |
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json;charset=utf-8
-- **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## contracts_get
-
-> crate::models::ListObjectContractHeader contracts_get(role_currency, tag, party_address, party_role, range)
-
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**role_currency** | Option<[**Vec<String>**](String.md)> |  |  |
-**tag** | Option<[**Vec<String>**](String.md)> |  |  |
-**party_address** | Option<[**Vec<String>**](String.md)> |  |  |
-**party_role** | Option<[**Vec<String>**](String.md)> |  |  |
-**range** | Option<**String**> |  |  |
-
-### Return type
-
-[**crate::models::ListObjectContractHeader**](ListObject_ContractHeader.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## contracts_post
-
-> crate::models::ContractsPost201Response contracts_post(x_change_address, x_stake_address, x_address, x_collateral_utx_o, post_contracts_request)
-
+Build an unsigned (Cardano) transaction body which opens a new Marlowe contract. This unsigned transaction must be signed by a wallet (such as a CIP-30 or CIP-45 wallet) before being submitted. To submit the signed transaction, use the PUT /contracts/{contractId} endpoint.
 
 ### Parameters
 
@@ -278,14 +74,14 @@ No authorization required
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **x_change_address** | **String** |  | [required] |
-**x_stake_address** | Option<**String**> |  |  |
+**x_stake_address** | Option<**String**> | Where to send staking rewards for the Marlowe script outputs of this contract. |  |
 **x_address** | Option<**String**> |  |  |
 **x_collateral_utx_o** | Option<**String**> |  |  |
 **post_contracts_request** | Option<[**PostContractsRequest**](PostContractsRequest.md)> |  |  |
 
 ### Return type
 
-[**crate::models::ContractsPost201Response**](_contracts_post_201_response.md)
+[**crate::models::CreateContractResponse**](CreateContractResponse.md)
 
 ### Authorization
 
@@ -299,21 +95,52 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## contracts_sources_contract_source_id_adjacency_get
+## create_contract_sources
 
-> crate::models::ListObjectContractSourceId contracts_sources_contract_source_id_adjacency_get(contract_source_id)
+> crate::models::PostContractSourceResponse create_contract_sources(main, labelled_object)
+Upload contract sources
 
+Upload a bundle of marlowe objects as contract sources. This API supports request body streaming, with newline framing between request bundles.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**contract_source_id** | **String** |  | [required] |
+**main** | **String** | The label of the top-level contract object in the bundle(s). | [required] |
+**labelled_object** | Option<[**Vec<crate::models::LabelledObject>**](LabelledObject.md)> |  |  |
 
 ### Return type
 
-[**crate::models::ListObjectContractSourceId**](ListObject_ContractSourceId.md)
+[**crate::models::PostContractSourceResponse**](PostContractSourceResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/json;charset=utf-8
+- **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_contract_by_id
+
+> crate::models::GetContractResponse get_contract_by_id(contract_id)
+Get contract by ID
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**contract_id** | **String** |  | [required] |
+
+### Return type
+
+[**crate::models::GetContractResponse**](GetContractResponse.md)
 
 ### Authorization
 
@@ -327,10 +154,12 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## contracts_sources_contract_source_id_closure_get
+## get_contract_source_adjacency
 
-> crate::models::ListObjectContractSourceId contracts_sources_contract_source_id_closure_get(contract_source_id)
+> crate::models::ContractSourceIds get_contract_source_adjacency(contract_source_id)
+Get adjacent contract source IDs by ID
 
+Get the contract source IDs which are adjacent to a contract source (they appear directly in the contract source).
 
 ### Parameters
 
@@ -341,7 +170,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ListObjectContractSourceId**](ListObject_ContractSourceId.md)
+[**crate::models::ContractSourceIds**](ContractSourceIds.md)
 
 ### Authorization
 
@@ -355,10 +184,10 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## contracts_sources_contract_source_id_get
+## get_contract_source_by_id
 
-> crate::models::Contract contracts_sources_contract_source_id_get(contract_source_id, expand)
-
+> crate::models::Contract get_contract_source_by_id(contract_source_id, expand)
+Get contract source by ID
 
 ### Parameters
 
@@ -384,47 +213,23 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## contracts_sources_post
+## get_contract_source_closure
 
-> crate::models::PostContractSourceResponse contracts_sources_post(main, labelled_object)
+> crate::models::ContractSourceIds get_contract_source_closure(contract_source_id)
+Get contract source closure by ID
 
+Get the contract source IDs which appear in the full hierarchy of a contract source (including the ID of the contract source its self).
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**main** | **String** |  | [required] |
-**labelled_object** | Option<[**Vec<crate::models::LabelledObject>**](LabelledObject.md)> |  |  |
+**contract_source_id** | **String** |  | [required] |
 
 ### Return type
 
-[**crate::models::PostContractSourceResponse**](PostContractSourceResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/json;charset=utf-8
-- **Accept**: application/json;charset=utf-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## healthcheck_get
-
-> healthcheck_get()
-
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
- (empty response body)
+[**crate::models::ContractSourceIds**](ContractSourceIds.md)
 
 ### Authorization
 
@@ -438,24 +243,56 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## payouts_get
+## get_contract_transaction_by_id
 
-> crate::models::ListObjectPayoutHeader payouts_get(contract_id, role_token, status, range)
-
+> crate::models::GetTransactionResponse get_contract_transaction_by_id(contract_id, transaction_id)
+Get contract transaction by ID
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**contract_id** | Option<[**Vec<String>**](String.md)> |  |  |
-**role_token** | Option<[**Vec<String>**](String.md)> |  |  |
-**status** | Option<**String**> |  |  |
+**contract_id** | **String** |  | [required] |
+**transaction_id** | **String** |  | [required] |
+
+### Return type
+
+[**crate::models::GetTransactionResponse**](GetTransactionResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_contracts
+
+> crate::models::GetContractsResponse get_contracts(role_currency, tag, party_address, party_role, range)
+Get contracts
+
+Get contracts published on chain. Results are returned in pages, with paging being specified by request headers.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**role_currency** | Option<[**Vec<String>**](String.md)> |  |  |
+**tag** | Option<[**Vec<String>**](String.md)> |  |  |
+**party_address** | Option<[**Vec<String>**](String.md)> |  |  |
+**party_role** | Option<[**Vec<String>**](String.md)> |  |  |
 **range** | Option<**String**> |  |  |
 
 ### Return type
 
-[**crate::models::ListObjectPayoutHeader**](ListObject_PayoutHeader.md)
+[**crate::models::GetContractsResponse**](GetContractsResponse.md)
 
 ### Authorization
 
@@ -469,10 +306,43 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## payouts_payout_id_get
+## get_next_steps_for_contract
 
-> crate::models::PayoutsPayoutIdGet200Response payouts_payout_id_get(payout_id)
+> crate::models::Next get_next_steps_for_contract(contract_id, validity_start, validity_end, party)
+Get next contract steps
 
+Get inputs which could be performed on a contract withing a time range by the requested parties.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**contract_id** | **String** |  | [required] |
+**validity_start** | **String** | The beginning of the validity range. | [required] |
+**validity_end** | **String** | The end of the validity range. | [required] |
+**party** | Option<[**Vec<String>**](String.md)> |  |  |
+
+### Return type
+
+[**crate::models::Next**](Next.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_payout_by_id
+
+> crate::models::GetPayoutResponse get_payout_by_id(payout_id)
+Get payout by ID
 
 ### Parameters
 
@@ -483,7 +353,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::PayoutsPayoutIdGet200Response**](_payouts__payoutId__get_200_response.md)
+[**crate::models::GetPayoutResponse**](GetPayoutResponse.md)
 
 ### Authorization
 
@@ -497,22 +367,26 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## withdrawals_get
+## get_payouts
 
-> crate::models::ListObjectWithdrawalHeader withdrawals_get(role_currency, range)
+> crate::models::GetPayoutsResponse get_payouts(contract_id, role_token, status, range)
+Get role payouts
 
+Get payouts to parties from role-based contracts. Results are returned in pages, with paging being specified by request headers.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**role_currency** | Option<[**Vec<String>**](String.md)> |  |  |
+**contract_id** | Option<[**Vec<String>**](String.md)> |  |  |
+**role_token** | Option<[**Vec<String>**](String.md)> |  |  |
+**status** | Option<**String**> | Whether to include available or withdrawn payouts in the results. |  |
 **range** | Option<**String**> |  |  |
 
 ### Return type
 
-[**crate::models::ListObjectWithdrawalHeader**](ListObject_WithdrawalHeader.md)
+[**crate::models::GetPayoutsResponse**](GetPayoutsResponse.md)
 
 ### Authorization
 
@@ -526,24 +400,24 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## withdrawals_post
+## get_transactions_for_contract
 
-> crate::models::WithdrawalsPost201Response withdrawals_post(x_change_address, x_address, x_collateral_utx_o, post_withdrawals_request)
+> crate::models::GetTransactionsResponse get_transactions_for_contract(contract_id, range)
+Get transactions for contract
 
+Get published transactions for a contract. Results are returned in pages, with paging being specified by request headers.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**x_change_address** | **String** |  | [required] |
-**x_address** | Option<**String**> |  |  |
-**x_collateral_utx_o** | Option<**String**> |  |  |
-**post_withdrawals_request** | Option<[**PostWithdrawalsRequest**](PostWithdrawalsRequest.md)> |  |  |
+**contract_id** | **String** |  | [required] |
+**range** | Option<**String**> |  |  |
 
 ### Return type
 
-[**crate::models::WithdrawalsPost201Response**](_withdrawals_post_201_response.md)
+[**crate::models::GetTransactionsResponse**](GetTransactionsResponse.md)
 
 ### Authorization
 
@@ -551,16 +425,16 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/json;charset=utf-8
-- **Accept**: application/vendor.iog.marlowe-runtime.withdraw-tx-json
+- **Content-Type**: Not defined
+- **Accept**: application/json;charset=utf-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## withdrawals_withdrawal_id_get
+## get_withdrawal_by_id
 
-> crate::models::Withdrawal withdrawals_withdrawal_id_get(withdrawal_id)
-
+> crate::models::Withdrawal get_withdrawal_by_id(withdrawal_id)
+Get withdrawal by ID
 
 ### Parameters
 
@@ -585,10 +459,133 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## withdrawals_withdrawal_id_put
+## get_withdrawals
 
-> withdrawals_withdrawal_id_put(withdrawal_id, text_envelope)
+> crate::models::GetWithdrawalsResponse get_withdrawals(role_currency, range)
+Get withdrawals
 
+Get published withdrawal transactions. Results are returned in pages, with paging being specified by request headers.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**role_currency** | Option<[**Vec<String>**](String.md)> |  |  |
+**range** | Option<**String**> |  |  |
+
+### Return type
+
+[**crate::models::GetWithdrawalsResponse**](GetWithdrawalsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## healthcheck
+
+> healthcheck()
+Test server status
+
+Check if the server is running and ready to respond to requests.
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## submit_contract
+
+> submit_contract(contract_id, text_envelope)
+Submit contract to chain
+
+Submit a signed (Cardano) transaction that opens a new Marlowe contract. The transaction must have originally been created by the POST /contracts endpoint. This endpoint will respond when the transaction is submitted successfully to the local node, which means it will not wait for the transaction to be published in a block. Use the GET /contracts/{contractId} endpoint to poll the on-chain status.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**contract_id** | **String** |  | [required] |
+**text_envelope** | Option<[**TextEnvelope**](TextEnvelope.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json;charset=utf-8
+- **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## submit_contract_transaction
+
+> submit_contract_transaction(contract_id, transaction_id, text_envelope)
+Submit contract input application
+
+Submit a signed (Cardano) transaction that applies inputs to an open Marlowe contract. The transaction must have originally been created by the POST /contracts/{contractId}/transactions endpoint. This endpoint will respond when the transaction is submitted successfully to the local node, which means it will not wait for the transaction to be published in a block. Use the GET /contracts/{contractId}/transactions/{transactionId} endpoint to poll the on-chain status.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**contract_id** | **String** |  | [required] |
+**transaction_id** | **String** |  | [required] |
+**text_envelope** | Option<[**TextEnvelope**](TextEnvelope.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json;charset=utf-8
+- **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## submit_withdrawal
+
+> submit_withdrawal(withdrawal_id, text_envelope)
+Submit payout withdrawal
+
+Submit a signed (Cardano) transaction that withdraws available payouts from a role payout validator. The transaction must have originally been created by the POST /withdrawals endpoint. This endpoint will respond when the transaction is submitted successfully to the local node, which means it will not wait for the transaction to be published in a block. Use the GET /withdrawals/{withdrawalId} endpoint to poll the on-chain status.
 
 ### Parameters
 
@@ -610,6 +607,39 @@ No authorization required
 
 - **Content-Type**: application/json;charset=utf-8
 - **Accept**: application/json;charset=utf-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## withdraw_payouts
+
+> crate::models::WithdrawPayoutsResponse withdraw_payouts(x_change_address, x_address, x_collateral_utx_o, post_withdrawals_request)
+Withdraw payouts
+
+Build an unsigned (Cardano) transaction body which withdraws available payouts from a role payout validator. This unsigned transaction must be signed by a wallet (such as a CIP-30 or CIP-45 wallet) before being submitted. To submit the signed transaction, use the PUT /withdrawals/{withdrawalId} endpoint.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**x_change_address** | **String** |  | [required] |
+**x_address** | Option<**String**> |  |  |
+**x_collateral_utx_o** | Option<**String**> |  |  |
+**post_withdrawals_request** | Option<[**PostWithdrawalsRequest**](PostWithdrawalsRequest.md)> |  |  |
+
+### Return type
+
+[**crate::models::WithdrawPayoutsResponse**](WithdrawPayoutsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json;charset=utf-8
+- **Accept**: application/vendor.iog.marlowe-runtime.withdraw-tx-json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
