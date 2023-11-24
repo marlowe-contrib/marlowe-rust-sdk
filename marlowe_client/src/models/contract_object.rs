@@ -29,7 +29,7 @@ pub struct ContractObject {
     #[serde(rename = "if")]
     pub r#if: Box<crate::models::ObservationObject>,
     #[serde(rename = "timeout")]
-    pub timeout: i32,
+    pub timeout: i64,
     #[serde(rename = "timeout_continuation")]
     pub timeout_continuation: Box<crate::models::ContractObject>,
     #[serde(rename = "when")]
@@ -47,7 +47,7 @@ pub struct ContractObject {
 
 impl ContractObject {
     /// Contract terms specified in Marlowe
-    pub fn new(from_account: crate::models::PartyObject, pay: crate::models::ValueObject, then: crate::models::ContractObject, to: crate::models::PayeeObject, token: crate::models::TokenObject, r#else: crate::models::ContractObject, r#if: crate::models::ObservationObject, timeout: i32, timeout_continuation: crate::models::ContractObject, when: Vec<crate::models::CaseObject>, be: crate::models::ValueObject, r#let: String, assert: crate::models::ObservationObject, r#ref: String) -> ContractObject {
+    pub fn new(from_account: crate::models::PartyObject, pay: crate::models::ValueObject, then: crate::models::ContractObject, to: crate::models::PayeeObject, token: crate::models::TokenObject, r#else: crate::models::ContractObject, r#if: crate::models::ObservationObject, timeout: i64, timeout_continuation: crate::models::ContractObject, when: Vec<crate::models::CaseObject>, be: crate::models::ValueObject, r#let: String, assert: crate::models::ObservationObject, r#ref: String) -> ContractObject {
         ContractObject {
             from_account: Box::new(from_account),
             pay: Box::new(pay),

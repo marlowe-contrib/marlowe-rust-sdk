@@ -15,37 +15,37 @@
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ValueObject {
     #[serde(rename = "amount_of_token")]
-    pub amount_of_token: Box<crate::models::TokenObject>,
+    pub amount_of_token: Box<crate::models::Token>,
     #[serde(rename = "in_account")]
-    pub in_account: Box<crate::models::PartyObject>,
+    pub in_account: Box<crate::models::Party>,
     #[serde(rename = "negate")]
-    pub negate: Box<crate::models::ValueObject>,
+    pub negate: Box<crate::models::Value>,
     #[serde(rename = "add")]
-    pub add: Box<crate::models::ValueObject>,
+    pub add: Box<crate::models::Value>,
     #[serde(rename = "and")]
-    pub and: Box<crate::models::ValueObject>,
+    pub and: Box<crate::models::Value>,
     #[serde(rename = "minus")]
-    pub minus: Box<crate::models::ValueObject>,
+    pub minus: Box<crate::models::Value>,
     #[serde(rename = "value")]
-    pub value: Box<crate::models::ValueObject>,
+    pub value: Box<crate::models::Value>,
     #[serde(rename = "multiply")]
-    pub multiply: Box<crate::models::ValueObject>,
+    pub multiply: Box<crate::models::Value>,
     #[serde(rename = "times")]
-    pub times: Box<crate::models::ValueObject>,
+    pub times: Box<crate::models::Value>,
     #[serde(rename = "by")]
-    pub by: Box<crate::models::ValueObject>,
+    pub by: Box<crate::models::Value>,
     #[serde(rename = "divide")]
-    pub divide: Box<crate::models::ValueObject>,
+    pub divide: Box<crate::models::Value>,
     #[serde(rename = "value_of_choice")]
-    pub value_of_choice: Box<crate::models::ChoiceIdObject>,
+    pub value_of_choice: Box<crate::models::ChoiceId>,
     #[serde(rename = "use_value")]
     pub use_value: String,
     #[serde(rename = "else")]
-    pub r#else: Box<crate::models::ValueObject>,
+    pub r#else: Box<crate::models::Value>,
     #[serde(rename = "if")]
-    pub r#if: Box<crate::models::ObservationObject>,
+    pub r#if: Box<crate::models::Observation>,
     #[serde(rename = "then")]
-    pub then: Box<crate::models::ValueObject>,
+    pub then: Box<crate::models::Value>,
     /// An arbitrary text identifier for an object in a Marlowe object bundle.
     #[serde(rename = "ref")]
     pub r#ref: String,
@@ -53,7 +53,7 @@ pub struct ValueObject {
 
 impl ValueObject {
     /// A time-varying expression that evaluates to a boolean
-    pub fn new(amount_of_token: crate::models::TokenObject, in_account: crate::models::PartyObject, negate: crate::models::ValueObject, add: crate::models::ValueObject, and: crate::models::ValueObject, minus: crate::models::ValueObject, value: crate::models::ValueObject, multiply: crate::models::ValueObject, times: crate::models::ValueObject, by: crate::models::ValueObject, divide: crate::models::ValueObject, value_of_choice: crate::models::ChoiceIdObject, use_value: String, r#else: crate::models::ValueObject, r#if: crate::models::ObservationObject, then: crate::models::ValueObject, r#ref: String) -> ValueObject {
+    pub fn new(amount_of_token: crate::models::Token, in_account: crate::models::Party, negate: crate::models::Value, add: crate::models::Value, and: crate::models::Value, minus: crate::models::Value, value: crate::models::Value, multiply: crate::models::Value, times: crate::models::Value, by: crate::models::Value, divide: crate::models::Value, value_of_choice: crate::models::ChoiceId, use_value: String, r#else: crate::models::Value, r#if: crate::models::Observation, then: crate::models::Value, r#ref: String) -> ValueObject {
         ValueObject {
             amount_of_token: Box::new(amount_of_token),
             in_account: Box::new(in_account),

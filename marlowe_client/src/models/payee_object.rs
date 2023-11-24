@@ -15,17 +15,14 @@
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PayeeObject {
     #[serde(rename = "account")]
-    pub account: Box<crate::models::PartyObject>,
-    #[serde(rename = "party")]
-    pub party: Box<crate::models::PartyObject>,
+    pub account: Box<crate::models::Party>,
 }
 
 impl PayeeObject {
     /// A recipient of a payment
-    pub fn new(account: crate::models::PartyObject, party: crate::models::PartyObject) -> PayeeObject {
+    pub fn new(account: crate::models::Party) -> PayeeObject {
         PayeeObject {
             account: Box::new(account),
-            party: Box::new(party),
         }
     }
 }

@@ -15,14 +15,14 @@
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct IntervalError {
     #[serde(rename = "invalidInterval")]
-    pub invalid_interval: Box<crate::models::IntervalErrorOneOfInvalidInterval>,
+    pub invalid_interval: Box<crate::models::InvalidIntervalInvalidInterval>,
     #[serde(rename = "intervalInPastError")]
-    pub interval_in_past_error: Box<crate::models::IntervalErrorOneOf1IntervalInPastError>,
+    pub interval_in_past_error: Box<crate::models::IntervalInPastIntervalInPastError>,
 }
 
 impl IntervalError {
     /// A Marlowe transaction interval error.
-    pub fn new(invalid_interval: crate::models::IntervalErrorOneOfInvalidInterval, interval_in_past_error: crate::models::IntervalErrorOneOf1IntervalInPastError) -> IntervalError {
+    pub fn new(invalid_interval: crate::models::InvalidIntervalInvalidInterval, interval_in_past_error: crate::models::IntervalInPastIntervalInPastError) -> IntervalError {
         IntervalError {
             invalid_interval: Box::new(invalid_interval),
             interval_in_past_error: Box::new(interval_in_past_error),
