@@ -28,7 +28,7 @@ pub struct PostContractsRequestContract {
     #[serde(rename = "if")]
     pub r#if: Box<crate::models::Observation>,
     #[serde(rename = "timeout")]
-    pub timeout: i32,
+    pub timeout: i64,
     #[serde(rename = "timeout_continuation")]
     pub timeout_continuation: Box<crate::models::Contract>,
     #[serde(rename = "when")]
@@ -42,7 +42,7 @@ pub struct PostContractsRequestContract {
 }
 
 impl PostContractsRequestContract {
-    pub fn new(from_account: crate::models::Party, pay: crate::models::Value, then: crate::models::Contract, to: crate::models::Payee, token: crate::models::Token, r#else: crate::models::Contract, r#if: crate::models::Observation, timeout: i32, timeout_continuation: crate::models::Contract, when: Vec<crate::models::Case>, be: crate::models::Value, r#let: String, assert: crate::models::Observation) -> PostContractsRequestContract {
+    pub fn new(from_account: crate::models::Party, pay: crate::models::Value, then: crate::models::Contract, to: crate::models::Payee, token: crate::models::Token, r#else: crate::models::Contract, r#if: crate::models::Observation, timeout: i64, timeout_continuation: crate::models::Contract, when: Vec<crate::models::Case>, be: crate::models::Value, r#let: String, assert: crate::models::Observation) -> PostContractsRequestContract {
         PostContractsRequestContract {
             from_account: Box::new(from_account),
             pay: Box::new(pay),
