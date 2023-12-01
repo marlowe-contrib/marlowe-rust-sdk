@@ -60,7 +60,7 @@ pub async fn get_contracts(
     party_role: Option<Vec<String>>,
     range: Option<&str>,
 ) -> Result<(Vec<ContractHeader>, Headers), Error<GetContractsError>> {
-    let res = apis::default_api::get_contracts(
+    apis::default_api::get_contracts(
         configuration,
         role_currency,
         tag,
@@ -68,9 +68,8 @@ pub async fn get_contracts(
         party_role,
         range,
     )
-    .await;
-
-    res.map(|(contracts_data, headers)| {
+    .await
+    .map(|(contracts_data, headers)| {
         let contracts = contracts_data
             .results
             .iter()

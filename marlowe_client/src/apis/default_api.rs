@@ -1122,7 +1122,7 @@ pub async fn submit_contract(
     configuration: &configuration::Configuration,
     contract_id: &str,
     text_envelope: Option<crate::models::TextEnvelope>,
-) -> Result<(HeaderMap), Error<SubmitContractError>> {
+) -> Result<HeaderMap, Error<SubmitContractError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
