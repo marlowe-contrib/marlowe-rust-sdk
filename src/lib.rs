@@ -6,7 +6,6 @@ use marlowe_client::{
     apis::{
         self,
         configuration::Configuration,
-        default_api::GetContractsError,
         default_api::{
             ApplyInputsToContractError, CreateContractError, CreateContractSourcesError,
             GetContractByIdError, GetContractSourceAdjacencyError, GetContractSourceByIdError,
@@ -16,7 +15,6 @@ use marlowe_client::{
             HealthcheckError, SubmitContractError, SubmitContractTransactionError,
             SubmitWithdrawalError, WithdrawPayoutsError,
         },
-        Error,
     },
     models::{
         ApplyInputsTxEnvelope, Contract, ContractHeader, ContractState, CreateTxEnvelope, Next,
@@ -26,6 +24,10 @@ use marlowe_client::{
     },
     reqwest::header::HeaderMap,
 };
+
+pub use marlowe_client::apis::configuration;
+pub use marlowe_client::apis::default_api::GetContractsError;
+pub use marlowe_client::apis::Error;
 
 pub type Headers = HashMap<String, String>;
 
@@ -78,6 +80,7 @@ pub async fn get_contracts(
         (contracts, header_map_to_hash_map(&headers))
     })
 }
+
 // Build an unsigned (Cardano) transaction body which opens a new Marlowe contract.
 // This unsigned transaction must be signed by a wallet (such as a CIP-30 or CIP-45 wallet) before being submitted.
 // To submit the signed transaction, use the submit_contract method.
@@ -87,7 +90,7 @@ pub async fn create_contract(
     x_stake_address: Option<&str>,
     x_address: Option<&str>,
     x_collateral_utx_o: Option<&str>,
-    post_contracts_request: Option<PostContractsRequest>,
+    post_contracts_request: PostContractsRequest,
 ) -> Result<(CreateTxEnvelope, Headers), Error<CreateContractError>> {
     apis::default_api::create_contract(
         configuration,
@@ -95,7 +98,7 @@ pub async fn create_contract(
         x_stake_address,
         x_address,
         x_collateral_utx_o,
-        post_contracts_request,
+        Some(post_contracts_request),
     )
     .await
     .map(|(create_raw_data, headers)| {

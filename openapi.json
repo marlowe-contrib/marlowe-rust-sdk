@@ -767,7 +767,7 @@
             },
             "type": "array"
           },
-          "tx": {
+          "txBody": {
             "$ref": "#/components/schemas/TextEnvelope"
           }
         },
@@ -2059,7 +2059,13 @@
             "$ref": "#/components/schemas/MarloweVersion"
           }
         },
-        "required": ["tags", "metadata", "version", "contract"],
+        "required": [
+          "tags",
+          "metadata",
+          "minUTxODeposit",
+          "version",
+          "contract"
+        ],
         "type": "object"
       },
       "PostTransactionsRequest": {
