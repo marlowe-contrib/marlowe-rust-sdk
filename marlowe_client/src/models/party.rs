@@ -16,6 +16,5 @@ use super::{PartyAddress, PartyRoleName};
 #[serde(untagged)]
 pub enum Party {
     PartyRoleName(PartyRoleName),
-    /// A cardano address, in Bech32 format
     PartyAddress(PartyAddress),
 }

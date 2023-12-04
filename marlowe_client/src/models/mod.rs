@@ -281,7 +281,7 @@ pub use self::pub_key_credential::PubKeyCredential;
 pub mod role_token_config;
 pub use self::role_token_config::RoleTokenConfig;
 pub mod roles_config;
-pub use self::roles_config::RolesConfig;
+pub use self::roles_config::{AdditionalRolesConfigProp, RolesConfig};
 pub mod safety_error;
 pub use self::safety_error::SafetyError;
 pub mod script_credential;
