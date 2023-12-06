@@ -7,3 +7,6 @@ edition = "2021"
 
 [dependencies]
 marlowe_client = { path = "./marlowe_client" }
+
+[dev-dependencies]
+tokio = { version = "1.0.1", features = ["rt", "macros"] }
