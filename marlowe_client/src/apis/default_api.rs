@@ -1293,6 +1293,12 @@ pub async fn withdraw_payouts(
         local_var_req_builder =
             local_var_req_builder.header("X-Collateral-UTxO", local_var_param_value.to_string());
     }
+
+    local_var_req_builder = local_var_req_builder.header(
+        "Accept",
+        "application/vendor.iog.marlowe-runtime.withdraw-tx-json".to_string(),
+    );
+
     local_var_req_builder = local_var_req_builder.json(&post_withdrawals_request);
 
     let local_var_req = local_var_req_builder.build()?;
