@@ -214,6 +214,12 @@ pub async fn apply_inputs_to_contract(
         local_var_req_builder =
             local_var_req_builder.header("X-Collateral-UTxO", local_var_param_value.to_string());
     }
+
+    local_var_req_builder = local_var_req_builder.header(
+        "Accept",
+        "application/vendor.iog.marlowe-runtime.apply-inputs-tx-json".to_string(),
+    );
+
     local_var_req_builder = local_var_req_builder.json(&post_transactions_request);
 
     let local_var_req = local_var_req_builder.build()?;
