@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 Cargo.toml
 README.md
@@ -127,7 +126,9 @@ docs/PartyRoleName.md
 docs/Pay.md
 docs/PayObject.md
 docs/PayToAccount.md
+docs/PayToAccountObject.md
 docs/PayToParty.md
+docs/PayToPartyObject.md
 docs/Payee.md
 docs/PayeeObject.md
 docs/Payment.md
@@ -310,7 +311,9 @@ src/models/party_role_name.rs
 src/models/pay.rs
 src/models/pay_object.rs
 src/models/pay_to_account.rs
+src/models/pay_to_account_object.rs
 src/models/pay_to_party.rs
+src/models/pay_to_party_object.rs
 src/models/payee.rs
 src/models/payee_object.rs
 src/models/payment.rs

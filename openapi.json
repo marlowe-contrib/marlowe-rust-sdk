@@ -1196,9 +1196,6 @@
             "$ref": "#/components/schemas/ChoiceInput"
           },
           {
-            "$ref": "#/components/schemas/ChoiceContinuationInput"
-          },
-          {
             "$ref": "#/components/schemas/DepositInput"
           },
           {
@@ -1864,14 +1861,34 @@
           }
         ]
       },
+      "PayToAccountObject": {
+        "description": "Pays funds into a party's account in the contract.",
+        "properties": {
+          "account": {
+            "$ref": "#/components/schemas/PartyObject"
+          }
+        },
+        "required": ["account"],
+        "type": "object"
+      },
+      "PayToPartyObject": {
+        "description": "Pays funds to a party.",
+        "properties": {
+          "party": {
+            "$ref": "#/components/schemas/PartyObject"
+          }
+        },
+        "required": ["party"],
+        "type": "object"
+      },
       "PayeeObject": {
         "description": "A recipient of a payment",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/PayToAccount"
+            "$ref": "#/components/schemas/PayToAccountObject"
           },
           {
-            "$ref": "#/components/schemas/PayToAccount"
+            "$ref": "#/components/schemas/PayToPartyObject"
           }
         ]
       },

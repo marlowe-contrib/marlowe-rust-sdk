@@ -275,8 +275,11 @@ pub async fn create_contract(
         local_var_req_builder =
             local_var_req_builder.header("X-Collateral-UTxO", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.header(
+        "Accept",
+        "application/vendor.iog.marlowe-runtime.contract-tx-json".to_string(),
+    );
     local_var_req_builder = local_var_req_builder.json(&post_contracts_request);
-
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
