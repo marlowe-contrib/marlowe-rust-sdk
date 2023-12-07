@@ -47,6 +47,18 @@
           }
         ]
       },
+      "Add": {
+        "properties": {
+          "add": {
+            "$ref": "#/components/schemas/Value"
+          },
+          "and": {
+            "$ref": "#/components/schemas/Value"
+          }
+        },
+        "required": ["add", "and"],
+        "type": "object"
+      },
       "AdditionalMetadata": {
         "additionalProperties": {
           "$ref": "#/components/schemas/Metadata"
@@ -58,6 +70,18 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/RoleTokenConfig"
         },
+        "type": "object"
+      },
+      "AddObject": {
+        "properties": {
+          "add": {
+            "$ref": "#/components/schemas/ValueObject"
+          },
+          "and": {
+            "$ref": "#/components/schemas/ValueObject"
+          }
+        },
+        "required": ["add", "and"],
         "type": "object"
       },
       "Address": {
@@ -861,6 +885,30 @@
         ],
         "type": "object"
       },
+      "Divide": {
+        "properties": {
+          "by": {
+            "$ref": "#/components/schemas/Value"
+          },
+          "divide": {
+            "$ref": "#/components/schemas/Value"
+          }
+        },
+        "required": ["divide", "by"],
+        "type": "object"
+      },
+      "DivideObject": {
+        "properties": {
+          "by": {
+            "$ref": "#/components/schemas/ValueObject"
+          },
+          "divide": {
+            "$ref": "#/components/schemas/ValueObject"
+          }
+        },
+        "required": ["divide", "by"],
+        "type": "object"
+      },
       "Equal": {
         "properties": {
           "equal_to": {
@@ -1148,6 +1196,36 @@
           },
           "then": {
             "$ref": "#/components/schemas/ContractObject"
+          }
+        },
+        "required": ["if", "then", "else"],
+        "type": "object"
+      },
+      "IfValue": {
+        "properties": {
+          "else": {
+            "$ref": "#/components/schemas/Value"
+          },
+          "if": {
+            "$ref": "#/components/schemas/Observation"
+          },
+          "then": {
+            "$ref": "#/components/schemas/Value"
+          }
+        },
+        "required": ["if", "then", "else"],
+        "type": "object"
+      },
+      "IfValueObject": {
+        "properties": {
+          "else": {
+            "$ref": "#/components/schemas/ValueObject"
+          },
+          "if": {
+            "$ref": "#/components/schemas/ObservationObject"
+          },
+          "then": {
+            "$ref": "#/components/schemas/ValueObject"
           }
         },
         "required": ["if", "then", "else"],
@@ -1491,6 +1569,72 @@
           "$ref": "#/components/schemas/Metadata"
         },
         "type": "array"
+      },
+      "Minus": {
+        "properties": {
+          "minus": {
+            "$ref": "#/components/schemas/Value"
+          },
+          "value": {
+            "$ref": "#/components/schemas/Value"
+          }
+        },
+        "required": ["value", "minus"],
+        "type": "object"
+      },
+      "MinusObject": {
+        "properties": {
+          "minus": {
+            "$ref": "#/components/schemas/ValueObject"
+          },
+          "value": {
+            "$ref": "#/components/schemas/ValueObject"
+          }
+        },
+        "required": ["value", "minus"],
+        "type": "object"
+      },
+      "Multiply": {
+        "properties": {
+          "multiply": {
+            "$ref": "#/components/schemas/Value"
+          },
+          "times": {
+            "$ref": "#/components/schemas/Value"
+          }
+        },
+        "required": ["multiply", "times"],
+        "type": "object"
+      },
+      "MultiplyObject": {
+        "properties": {
+          "multiply": {
+            "$ref": "#/components/schemas/ValueObject"
+          },
+          "times": {
+            "$ref": "#/components/schemas/ValueObject"
+          }
+        },
+        "required": ["multiply", "times"],
+        "type": "object"
+      },
+      "Negate": {
+        "properties": {
+          "negate": {
+            "$ref": "#/components/schemas/Value"
+          }
+        },
+        "required": ["negate"],
+        "type": "object"
+      },
+      "NegateObject": {
+        "properties": {
+          "negate": {
+            "$ref": "#/components/schemas/ValueObject"
+          }
+        },
+        "required": ["negate"],
+        "type": "object"
       },
       "Next": {
         "description": "Describe the reducibility (Can be Reduced ?) and the applicability (Can Inputs be Applied ?) for a given contract.",
@@ -2256,6 +2400,10 @@
         "description": "Text data of up to 64 characters",
         "type": "string"
       },
+      "TimeInterval": {
+        "enum": ["time_interval_start", "time_interval_end"],
+        "type": "string"
+      },
       "Token": {
         "description": "A token with a currency symbol (minting policy ID) and token name.",
         "properties": {
@@ -2267,6 +2415,34 @@
           }
         },
         "required": ["currency_symbol", "token_name"],
+        "type": "object"
+      },
+      "TokenAmount": {
+        "format": "int64",
+        "type": "integer"
+      },
+      "TokenInAccount": {
+        "properties": {
+          "amount_of_token": {
+            "$ref": "#/components/schemas/Token"
+          },
+          "in_account": {
+            "$ref": "#/components/schemas/Party"
+          }
+        },
+        "required": ["amount_of_token", "in_account"],
+        "type": "object"
+      },
+      "TokenInAccountObject": {
+        "properties": {
+          "amount_of_token": {
+            "$ref": "#/components/schemas/TokenObject"
+          },
+          "in_account": {
+            "$ref": "#/components/schemas/PartyObject"
+          }
+        },
+        "required": ["amount_of_token", "in_account"],
         "type": "object"
       },
       "TokenMetadata": {
@@ -2617,97 +2793,6 @@
         "enum": ["unsigned", "submitted", "confirmed"],
         "type": "string"
       },
-      "UTCTime": {
-        "example": "2016-07-22T00:00:00Z",
-        "format": "yyyy-mm-ddThh:MM:ssZ",
-        "type": "string"
-      },
-      "TokenInAccount": {
-        "properties": {
-          "amount_of_token": {
-            "$ref": "#/components/schemas/Token"
-          },
-          "in_account": {
-            "$ref": "#/components/schemas/Party"
-          }
-        },
-        "required": ["amount_of_token", "in_account"],
-        "type": "object"
-      },
-      "TokenAmount": {
-        "format": "int64",
-        "type": "integer"
-      },
-      "Negate": {
-        "properties": {
-          "negate": {
-            "$ref": "#/components/schemas/Value"
-          }
-        },
-        "required": ["negate"],
-        "type": "object"
-      },
-      "Add": {
-        "properties": {
-          "add": {
-            "$ref": "#/components/schemas/Value"
-          },
-          "and": {
-            "$ref": "#/components/schemas/Value"
-          }
-        },
-        "required": ["add", "and"],
-        "type": "object"
-      },
-      "Minus": {
-        "properties": {
-          "minus": {
-            "$ref": "#/components/schemas/Value"
-          },
-          "value": {
-            "$ref": "#/components/schemas/Value"
-          }
-        },
-        "required": ["value", "minus"],
-        "type": "object"
-      },
-      "Multiply": {
-        "properties": {
-          "multiply": {
-            "$ref": "#/components/schemas/Value"
-          },
-          "times": {
-            "$ref": "#/components/schemas/Value"
-          }
-        },
-        "required": ["multiply", "times"],
-        "type": "object"
-      },
-      "Divide": {
-        "properties": {
-          "by": {
-            "$ref": "#/components/schemas/Value"
-          },
-          "divide": {
-            "$ref": "#/components/schemas/Value"
-          }
-        },
-        "required": ["divide", "by"],
-        "type": "object"
-      },
-      "ValueOfChoice": {
-        "properties": {
-          "value_of_choice": {
-            "$ref": "#/components/schemas/ChoiceId"
-          }
-        },
-        "required": ["value_of_choice"],
-        "type": "object"
-      },
-      "TimeInterval": {
-        "enum": ["time_interval_start", "time_interval_end"],
-        "type": "string"
-      },
       "UseValue": {
         "properties": {
           "use_value": {
@@ -2717,20 +2802,10 @@
         "required": ["use_value"],
         "type": "object"
       },
-      "IfValue": {
-        "properties": {
-          "else": {
-            "$ref": "#/components/schemas/Value"
-          },
-          "if": {
-            "$ref": "#/components/schemas/Observation"
-          },
-          "then": {
-            "$ref": "#/components/schemas/Value"
-          }
-        },
-        "required": ["if", "then", "else"],
-        "type": "object"
+      "UTCTime": {
+        "example": "2016-07-22T00:00:00Z",
+        "format": "yyyy-mm-ddThh:MM:ssZ",
+        "type": "string"
       },
       "Value": {
         "description": "A time-varying expression that evaluates to a boolean",
@@ -2769,99 +2844,6 @@
             "$ref": "#/components/schemas/IfValue"
           }
         ]
-      },
-      "TokenInAccountObject": {
-        "properties": {
-          "amount_of_token": {
-            "$ref": "#/components/schemas/TokenObject"
-          },
-          "in_account": {
-            "$ref": "#/components/schemas/PartyObject"
-          }
-        },
-        "required": ["amount_of_token", "in_account"],
-        "type": "object"
-      },
-      "NegateObject": {
-        "properties": {
-          "negate": {
-            "$ref": "#/components/schemas/ValueObject"
-          }
-        },
-        "required": ["negate"],
-        "type": "object"
-      },
-      "AddObject": {
-        "properties": {
-          "add": {
-            "$ref": "#/components/schemas/ValueObject"
-          },
-          "and": {
-            "$ref": "#/components/schemas/ValueObject"
-          }
-        },
-        "required": ["add", "and"],
-        "type": "object"
-      },
-      "MinusObject": {
-        "properties": {
-          "minus": {
-            "$ref": "#/components/schemas/ValueObject"
-          },
-          "value": {
-            "$ref": "#/components/schemas/ValueObject"
-          }
-        },
-        "required": ["value", "minus"],
-        "type": "object"
-      },
-      "MultiplyObject": {
-        "properties": {
-          "multiply": {
-            "$ref": "#/components/schemas/ValueObject"
-          },
-          "times": {
-            "$ref": "#/components/schemas/ValueObject"
-          }
-        },
-        "required": ["multiply", "times"],
-        "type": "object"
-      },
-      "DivideObject": {
-        "properties": {
-          "by": {
-            "$ref": "#/components/schemas/ValueObject"
-          },
-          "divide": {
-            "$ref": "#/components/schemas/ValueObject"
-          }
-        },
-        "required": ["divide", "by"],
-        "type": "object"
-      },
-      "ValueOfChoiceObject": {
-        "properties": {
-          "value_of_choice": {
-            "$ref": "#/components/schemas/ChoiceIdObject"
-          }
-        },
-        "required": ["value_of_choice"],
-        "type": "object"
-      },
-      "IfValueObject": {
-        "properties": {
-          "else": {
-            "$ref": "#/components/schemas/ValueObject"
-          },
-          "if": {
-            "$ref": "#/components/schemas/ObservationObject"
-          },
-          "then": {
-            "$ref": "#/components/schemas/ValueObject"
-          }
-        },
-        "required": ["if", "then", "else"],
-        "type": "object"
       },
       "ValueObject": {
         "description": "A time-varying expression that evaluates to a boolean",
@@ -2903,6 +2885,24 @@
             "$ref": "#/components/schemas/LabelRef"
           }
         ]
+      },
+      "ValueOfChoice": {
+        "properties": {
+          "value_of_choice": {
+            "$ref": "#/components/schemas/ChoiceId"
+          }
+        },
+        "required": ["value_of_choice"],
+        "type": "object"
+      },
+      "ValueOfChoiceObject": {
+        "properties": {
+          "value_of_choice": {
+            "$ref": "#/components/schemas/ChoiceIdObject"
+          }
+        },
+        "required": ["value_of_choice"],
+        "type": "object"
       },
       "VariableShadowing": {
         "description": "A variable-name shadowing warning.",
