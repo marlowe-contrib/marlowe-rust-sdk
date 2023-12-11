@@ -329,7 +329,10 @@ pub use self::token_object::TokenObject;
 pub mod transaction;
 pub use self::transaction::Transaction;
 pub mod transaction_error;
-pub use self::transaction_error::TransactionError;
+pub use self::transaction_error::{
+    TEAmbiguousTimeIntervalError, TEApplyNoMatchError, TEHashMismatch, TEUselessTransaction,
+    TransactionError,
+};
 pub mod transaction_error_one_of;
 pub use self::transaction_error_one_of::TransactionErrorOneOf;
 pub mod transaction_input;
