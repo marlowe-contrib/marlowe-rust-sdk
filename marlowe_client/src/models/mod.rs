@@ -301,7 +301,7 @@ pub use self::pub_key_credential::PubKeyCredential;
 pub mod role_token_config;
 pub use self::role_token_config::RoleTokenConfig;
 pub mod roles_config;
-pub use self::roles_config::{AdditionalRolesConfigProp, RolesConfig};
+pub use self::roles_config::RolesConfig;
 pub mod safety_error;
 pub use self::safety_error::SafetyError;
 pub mod script_credential;
@@ -329,10 +329,7 @@ pub use self::token_object::TokenObject;
 pub mod transaction;
 pub use self::transaction::Transaction;
 pub mod transaction_error;
-pub use self::transaction_error::{
-    TEAmbiguousTimeIntervalError, TEApplyNoMatchError, TEHashMismatch, TEUselessTransaction,
-    TransactionError,
-};
+pub use self::transaction_error::TransactionError;
 pub mod transaction_error_one_of;
 pub use self::transaction_error_one_of::TransactionErrorOneOf;
 pub mod transaction_input;

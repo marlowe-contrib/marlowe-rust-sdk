@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**timeout** | **i32** |  | 
+**timeout** | **i64** |  | 
 **timeout_continuation** | [**crate::models::ContractObject**](ContractObject.md) |  | 
 **when** | [**Vec<crate::models::CaseObject>**](CaseObject.md) |  | 
 
