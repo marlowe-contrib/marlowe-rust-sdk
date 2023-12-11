@@ -2928,6 +2928,7 @@
         "description": "Wait for an action to be performed and apply the matching contract when it does. Apply the timeout contract if no actions have been performed in the timeout period.",
         "properties": {
           "timeout": {
+            "format": "int64",
             "type": "integer"
           },
           "timeout_continuation": {
@@ -2947,6 +2948,7 @@
         "description": "Wait for an action to be performed and apply the matching contract when it does. Apply the timeout contract if no actions have been performed in the timeout period.",
         "properties": {
           "timeout": {
+            "format": "int64",
             "type": "integer"
           },
           "timeout_continuation": {

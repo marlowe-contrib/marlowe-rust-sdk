@@ -17,17 +17,17 @@ pub struct CreateTxEnvelope {
     pub contract_id: String,
     #[serde(rename = "safetyErrors", skip_serializing_if = "Option::is_none")]
     pub safety_errors: Option<Vec<crate::models::SafetyError>>,
-    #[serde(rename = "tx", skip_serializing_if = "Option::is_none")]
-    pub tx: Option<Box<crate::models::TextEnvelope>>,
+    #[serde(rename = "tx")]
+    pub tx: Box<crate::models::TextEnvelope>,
 }
 
 impl CreateTxEnvelope {
     /// The \"type\" property of \"tx\" must be \"Tx BabbageEra\" or \"Tx ConwayEra\"
-    pub fn new(contract_id: String) -> CreateTxEnvelope {
+    pub fn new(contract_id: String, tx: crate::models::TextEnvelope) -> CreateTxEnvelope {
         CreateTxEnvelope {
             contract_id,
             safety_errors: None,
-            tx: None,
+            tx: Box::new(tx),
         }
     }
 }

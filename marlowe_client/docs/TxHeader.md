@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **block** | Option<[**crate::models::BlockHeader**](BlockHeader.md)> |  | [optional]
 **continuations** | Option<**String**> |  | [optional]
 **contract_id** | **String** | A reference to a transaction output with a transaction ID and index. | 
-**metadata** | [**::std::collections::HashMap<String, serde_json::Value>**](serde_json::Value.md) |  | 
+**metadata** | [**::std::collections::HashMap<String, crate::models::Metadata>**](Metadata.md) |  | 
 **status** | [**crate::models::TxStatus**](TxStatus.md) |  | 
-**tags** | [**::std::collections::HashMap<String, serde_json::Value>**](serde_json::Value.md) |  | 
+**tags** | [**::std::collections::HashMap<String, crate::models::Metadata>**](Metadata.md) |  | 
 **transaction_id** | **String** | The hex-encoded identifier of a Cardano transaction | 
 **utxo** | Option<**String**> | A reference to a transaction output with a transaction ID and index. | [optional]
 
