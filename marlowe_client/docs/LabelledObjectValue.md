@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 **pay** | [**crate::models::ValueObject**](ValueObject.md) |  | 
 **to** | [**crate::models::PayeeObject**](PayeeObject.md) |  | 
 **token** | [**crate::models::TokenObject**](TokenObject.md) |  | 
-**timeout** | **i32** |  | 
+**timeout** | **i64** |  | 
 **timeout_continuation** | [**crate::models::ContractObject**](ContractObject.md) |  | 
 **when** | [**Vec<crate::models::CaseObject>**](CaseObject.md) |  | 
 **be** | [**crate::models::ValueObject**](ValueObject.md) |  | 

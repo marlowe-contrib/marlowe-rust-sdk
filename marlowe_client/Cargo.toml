@@ -1,6 +1,6 @@
 [package]
 name = "marlowe_client"
-version = "0.0.5"
+version = "0.0.5.1"
 authors = ["OpenAPI Generator team and contributors"]
 description = "REST API for Marlowe Runtime"
 license = "Apache 2.0"
