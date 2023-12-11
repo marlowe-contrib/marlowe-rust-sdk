@@ -1,5 +1,5 @@
 name: Rust code from specs
-on: 
+on:
   push:
     branches:
       - main
@@ -7,10 +7,6 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-
-env:
-  FILE_PATH: openapi.json
-  
 
 jobs:
   run:
@@ -26,7 +22,7 @@ jobs:
           fetch-depth: 5
 
       - name: Check if running the action is needed.
-        run: echo "API_SPECS_CHANGED=$(git diff --name-only HEAD HEAD~1 | grep $FILE_PATH)" >> "$GITHUB_ENV"
+        run: echo "API_SPECS_CHANGED=$(git diff --name-only HEAD HEAD~1 | grep ^$FILE_PATH$)" >> "$GITHUB_ENV"
 
       - name: Show variables
         run: echo "HI $API_SPECS_CHANGED $FILE_PATH"
