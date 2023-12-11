@@ -21,11 +21,11 @@ pub struct TxHeader {
     #[serde(rename = "contractId")]
     pub contract_id: String,
     #[serde(rename = "metadata")]
-    pub metadata: ::std::collections::HashMap<String, serde_json::Value>,
+    pub metadata: ::std::collections::HashMap<String, crate::models::Metadata>,
     #[serde(rename = "status")]
     pub status: crate::models::TxStatus,
     #[serde(rename = "tags")]
-    pub tags: ::std::collections::HashMap<String, serde_json::Value>,
+    pub tags: ::std::collections::HashMap<String, crate::models::Metadata>,
     /// The hex-encoded identifier of a Cardano transaction
     #[serde(rename = "transactionId")]
     pub transaction_id: String,
@@ -35,7 +35,7 @@ pub struct TxHeader {
 }
 
 impl TxHeader {
-    pub fn new(contract_id: String, metadata: ::std::collections::HashMap<String, serde_json::Value>, status: crate::models::TxStatus, tags: ::std::collections::HashMap<String, serde_json::Value>, transaction_id: String) -> TxHeader {
+    pub fn new(contract_id: String, metadata: ::std::collections::HashMap<String, crate::models::Metadata>, status: crate::models::TxStatus, tags: ::std::collections::HashMap<String, crate::models::Metadata>, transaction_id: String) -> TxHeader {
         TxHeader {
             block: None,
             continuations: None,

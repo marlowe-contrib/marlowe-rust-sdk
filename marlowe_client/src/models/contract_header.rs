@@ -21,20 +21,20 @@ pub struct ContractHeader {
     #[serde(rename = "contractId")]
     pub contract_id: String,
     #[serde(rename = "metadata")]
-    pub metadata: ::std::collections::HashMap<String, serde_json::Value>,
+    pub metadata: ::std::collections::HashMap<String, crate::models::Metadata>,
     /// The hex-encoded minting policy ID for a native Cardano token
     #[serde(rename = "roleTokenMintingPolicyId")]
     pub role_token_minting_policy_id: String,
     #[serde(rename = "status")]
     pub status: crate::models::TxStatus,
     #[serde(rename = "tags")]
-    pub tags: ::std::collections::HashMap<String, serde_json::Value>,
+    pub tags: ::std::collections::HashMap<String, crate::models::Metadata>,
     #[serde(rename = "version")]
     pub version: crate::models::MarloweVersion,
 }
 
 impl ContractHeader {
-    pub fn new(contract_id: String, metadata: ::std::collections::HashMap<String, serde_json::Value>, role_token_minting_policy_id: String, status: crate::models::TxStatus, tags: ::std::collections::HashMap<String, serde_json::Value>, version: crate::models::MarloweVersion) -> ContractHeader {
+    pub fn new(contract_id: String, metadata: ::std::collections::HashMap<String, crate::models::Metadata>, role_token_minting_policy_id: String, status: crate::models::TxStatus, tags: ::std::collections::HashMap<String, crate::models::Metadata>, version: crate::models::MarloweVersion) -> ContractHeader {
         ContractHeader {
             block: None,
             continuations: None,

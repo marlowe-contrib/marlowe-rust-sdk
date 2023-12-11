@@ -16,25 +16,28 @@ pub struct PostContractsRequest {
     #[serde(rename = "contract")]
     pub contract: Box<crate::models::PostContractsRequestContract>,
     #[serde(rename = "metadata")]
-    pub metadata: ::std::collections::HashMap<String, serde_json::Value>,
-    #[serde(rename = "minUTxODeposit")]
-    pub min_utx_o_deposit: i64,
+    pub metadata: ::std::collections::HashMap<String, crate::models::Metadata>,
+    #[serde(rename = "minUTxODeposit", skip_serializing_if = "Option::is_none")]
+    pub min_utx_o_deposit: Option<i64>,
     #[serde(rename = "roles", skip_serializing_if = "Option::is_none")]
     pub roles: Option<Box<crate::models::RolesConfig>>,
     #[serde(rename = "tags")]
-    pub tags: ::std::collections::HashMap<String, serde_json::Value>,
+    pub tags: ::std::collections::HashMap<String, crate::models::Metadata>,
+    #[serde(rename = "threadTokenName", skip_serializing_if = "Option::is_none")]
+    pub thread_token_name: Option<String>,
     #[serde(rename = "version")]
     pub version: crate::models::MarloweVersion,
 }
 
 impl PostContractsRequest {
-    pub fn new(contract: crate::models::PostContractsRequestContract, metadata: ::std::collections::HashMap<String, serde_json::Value>, min_utx_o_deposit: i64, tags: ::std::collections::HashMap<String, serde_json::Value>, version: crate::models::MarloweVersion) -> PostContractsRequest {
+    pub fn new(contract: crate::models::PostContractsRequestContract, metadata: ::std::collections::HashMap<String, crate::models::Metadata>, tags: ::std::collections::HashMap<String, crate::models::Metadata>, version: crate::models::MarloweVersion) -> PostContractsRequest {
         PostContractsRequest {
             contract: Box::new(contract),
             metadata,
-            min_utx_o_deposit,
+            min_utx_o_deposit: None,
             roles: None,
             tags,
+            thread_token_name: None,
             version,
         }
     }

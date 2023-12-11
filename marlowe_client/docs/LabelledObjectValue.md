@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amount_of_token** | [**crate::models::Token**](Token.md) |  | 
-**in_account** | [**crate::models::Party**](Party.md) |  | 
-**negate** | [**crate::models::Value**](Value.md) |  | 
-**add** | [**crate::models::Value**](Value.md) |  | 
+**amount_of_token** | [**crate::models::TokenObject**](TokenObject.md) |  | 
+**in_account** | [**crate::models::PartyObject**](PartyObject.md) |  | 
+**negate** | [**crate::models::ValueObject**](ValueObject.md) |  | 
+**add** | [**crate::models::ValueObject**](ValueObject.md) |  | 
 **and** | [**crate::models::ObservationObject**](ObservationObject.md) |  | 
-**minus** | [**crate::models::Value**](Value.md) |  | 
+**minus** | [**crate::models::ValueObject**](ValueObject.md) |  | 
 **value** | [**crate::models::ValueObject**](ValueObject.md) |  | 
-**multiply** | [**crate::models::Value**](Value.md) |  | 
-**times** | [**crate::models::Value**](Value.md) |  | 
-**by** | [**crate::models::Value**](Value.md) |  | 
-**divide** | [**crate::models::Value**](Value.md) |  | 
-**value_of_choice** | [**crate::models::ChoiceId**](ChoiceId.md) |  | 
+**multiply** | [**crate::models::ValueObject**](ValueObject.md) |  | 
+**times** | [**crate::models::ValueObject**](ValueObject.md) |  | 
+**by** | [**crate::models::ValueObject**](ValueObject.md) |  | 
+**divide** | [**crate::models::ValueObject**](ValueObject.md) |  | 
+**value_of_choice** | [**crate::models::ChoiceIdObject**](ChoiceIdObject.md) |  | 
 **use_value** | **String** |  | 
 **r#else** | [**crate::models::ContractObject**](ContractObject.md) |  | 
 **r#if** | [**crate::models::ObservationObject**](ObservationObject.md) |  | 
@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 **pay** | [**crate::models::ValueObject**](ValueObject.md) |  | 
 **to** | [**crate::models::PayeeObject**](PayeeObject.md) |  | 
 **token** | [**crate::models::TokenObject**](TokenObject.md) |  | 
-**timeout** | **i64** |  | 
+**timeout** | **i32** |  | 
 **timeout_continuation** | [**crate::models::ContractObject**](ContractObject.md) |  | 
 **when** | [**Vec<crate::models::CaseObject>**](CaseObject.md) |  | 
 **be** | [**crate::models::ValueObject**](ValueObject.md) |  | 

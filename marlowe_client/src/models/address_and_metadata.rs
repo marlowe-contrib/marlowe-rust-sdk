@@ -16,15 +16,15 @@ pub struct AddressAndMetadata {
     /// A cardano address, in Bech32 format
     #[serde(rename = "address")]
     pub address: String,
-    #[serde(rename = "metadata")]
-    pub metadata: Box<crate::models::TokenMetadata>,
+    #[serde(rename = "metadata", skip_serializing_if = "Option::is_none")]
+    pub metadata: Option<crate::models::TokenMetadata>,
 }
 
 impl AddressAndMetadata {
-    pub fn new(address: String, metadata: crate::models::TokenMetadata) -> AddressAndMetadata {
+    pub fn new(address: String) -> AddressAndMetadata {
         AddressAndMetadata {
             address,
-            metadata: Box::new(metadata),
+            metadata: None,
         }
     }
 }

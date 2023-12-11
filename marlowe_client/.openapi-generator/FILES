@@ -6,6 +6,7 @@ docs/AccountTokenTupleInner.md
 docs/Action.md
 docs/ActionObject.md
 docs/Add.md
+docs/AddObject.md
 docs/AddressAndMetadata.md
 docs/And.md
 docs/AndObject.md
@@ -55,6 +56,7 @@ docs/DepositActionObject.md
 docs/DepositContinuationInput.md
 docs/DepositInput.md
 docs/Divide.md
+docs/DivideObject.md
 docs/Equal.md
 docs/EqualObject.md
 docs/ExBudget.md
@@ -82,6 +84,7 @@ docs/GreaterOrEqualObject.md
 docs/If.md
 docs/IfObject.md
 docs/IfValue.md
+docs/IfValueObject.md
 docs/Input.md
 docs/IntervalError.md
 docs/IntervalInPast.md
@@ -102,10 +105,15 @@ docs/MarloweStateAccountsInnerInner.md
 docs/MarloweStateBoundValuesInnerInner.md
 docs/MarloweStateChoicesInnerInner.md
 docs/MarloweVersion.md
+docs/Metadata.md
+docs/MetadataAndRecipients.md
 docs/MetadataAndScript.md
 docs/Minus.md
+docs/MinusObject.md
 docs/Multiply.md
+docs/MultiplyObject.md
 docs/Negate.md
+docs/NegateObject.md
 docs/Next.md
 docs/NonPositiveDeposit.md
 docs/NonPositivePayment.md
@@ -155,6 +163,7 @@ docs/TextEnvelope.md
 docs/TimeInterval.md
 docs/Token.md
 docs/TokenInAccount.md
+docs/TokenInAccountObject.md
 docs/TokenMetadata.md
 docs/TokenMetadataFile.md
 docs/TokenObject.md
@@ -174,6 +183,7 @@ docs/UseValue.md
 docs/Value.md
 docs/ValueObject.md
 docs/ValueOfChoice.md
+docs/ValueOfChoiceObject.md
 docs/VariableShadowing.md
 docs/When.md
 docs/WhenObject.md
@@ -191,6 +201,7 @@ src/models/account_token_tuple_inner.rs
 src/models/action.rs
 src/models/action_object.rs
 src/models/add.rs
+src/models/add_object.rs
 src/models/address_and_metadata.rs
 src/models/and.rs
 src/models/and_object.rs
@@ -239,6 +250,7 @@ src/models/deposit_action_object.rs
 src/models/deposit_continuation_input.rs
 src/models/deposit_input.rs
 src/models/divide.rs
+src/models/divide_object.rs
 src/models/equal.rs
 src/models/equal_object.rs
 src/models/ex_budget.rs
@@ -265,6 +277,7 @@ src/models/greater_or_equal.rs
 src/models/greater_or_equal_object.rs
 src/models/if_object.rs
 src/models/if_value.rs
+src/models/if_value_object.rs
 src/models/input.rs
 src/models/interval_error.rs
 src/models/interval_in_past.rs
@@ -284,13 +297,18 @@ src/models/marlowe_state_accounts_inner_inner.rs
 src/models/marlowe_state_bound_values_inner_inner.rs
 src/models/marlowe_state_choices_inner_inner.rs
 src/models/marlowe_version.rs
+src/models/metadata.rs
+src/models/metadata_and_recipients.rs
 src/models/metadata_and_script.rs
 src/models/minus.rs
+src/models/minus_object.rs
 src/models/mod.rs
 src/models/model_if.rs
 src/models/model_let.rs
 src/models/multiply.rs
+src/models/multiply_object.rs
 src/models/negate.rs
+src/models/negate_object.rs
 src/models/next.rs
 src/models/non_positive_deposit.rs
 src/models/non_positive_payment.rs
@@ -340,6 +358,7 @@ src/models/text_envelope.rs
 src/models/time_interval.rs
 src/models/token.rs
 src/models/token_in_account.rs
+src/models/token_in_account_object.rs
 src/models/token_metadata.rs
 src/models/token_metadata_file.rs
 src/models/token_object.rs
@@ -359,6 +378,7 @@ src/models/use_value.rs
 src/models/value.rs
 src/models/value_object.rs
 src/models/value_of_choice.rs
+src/models/value_of_choice_object.rs
 src/models/variable_shadowing.rs
 src/models/when.rs
 src/models/when_object.rs

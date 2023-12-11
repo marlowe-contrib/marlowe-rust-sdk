@@ -14,7 +14,7 @@
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MetadataAndScript {
     #[serde(rename = "metadata", skip_serializing_if = "Option::is_none")]
-    pub metadata: Option<Box<crate::models::TokenMetadata>>,
+    pub metadata: Option<crate::models::TokenMetadata>,
     /// The type of script receiving the role token.
     #[serde(rename = "script")]
     pub script: Script,
@@ -32,15 +32,13 @@ impl MetadataAndScript {
 /// The type of script receiving the role token.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Script {
-    #[serde(rename = "ThreadRole")]
-    ThreadRole,
     #[serde(rename = "OpenRole")]
     OpenRole,
 }
 
 impl Default for Script {
     fn default() -> Script {
-        Self::ThreadRole
+        Self::OpenRole
     }
 }
 

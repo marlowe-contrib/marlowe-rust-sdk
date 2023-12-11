@@ -27,7 +27,7 @@ pub struct ContractState {
     #[serde(rename = "initialContract")]
     pub initial_contract: Box<crate::models::Contract>,
     #[serde(rename = "metadata")]
-    pub metadata: ::std::collections::HashMap<String, serde_json::Value>,
+    pub metadata: ::std::collections::HashMap<String, crate::models::Metadata>,
     /// The hex-encoded minting policy ID for a native Cardano token
     #[serde(rename = "roleTokenMintingPolicyId")]
     pub role_token_minting_policy_id: String,
@@ -36,7 +36,7 @@ pub struct ContractState {
     #[serde(rename = "status")]
     pub status: crate::models::TxStatus,
     #[serde(rename = "tags")]
-    pub tags: ::std::collections::HashMap<String, serde_json::Value>,
+    pub tags: ::std::collections::HashMap<String, crate::models::Metadata>,
     #[serde(rename = "txBody", skip_serializing_if = "Option::is_none")]
     pub tx_body: Option<Box<crate::models::TextEnvelope>>,
     #[serde(rename = "unclaimedPayouts")]
@@ -49,7 +49,7 @@ pub struct ContractState {
 }
 
 impl ContractState {
-    pub fn new(assets: crate::models::Assets, contract_id: String, initial_contract: crate::models::Contract, metadata: ::std::collections::HashMap<String, serde_json::Value>, role_token_minting_policy_id: String, status: crate::models::TxStatus, tags: ::std::collections::HashMap<String, serde_json::Value>, unclaimed_payouts: Vec<crate::models::Payout>, version: crate::models::MarloweVersion) -> ContractState {
+    pub fn new(assets: crate::models::Assets, contract_id: String, initial_contract: crate::models::Contract, metadata: ::std::collections::HashMap<String, crate::models::Metadata>, role_token_minting_policy_id: String, status: crate::models::TxStatus, tags: ::std::collections::HashMap<String, crate::models::Metadata>, unclaimed_payouts: Vec<crate::models::Payout>, version: crate::models::MarloweVersion) -> ContractState {
         ContractState {
             assets: Box::new(assets),
             block: None,

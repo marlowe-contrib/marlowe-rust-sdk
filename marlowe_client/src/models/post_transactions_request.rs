@@ -20,15 +20,15 @@ pub struct PostTransactionsRequest {
     #[serde(rename = "invalidHereafter", skip_serializing_if = "Option::is_none")]
     pub invalid_hereafter: Option<String>,
     #[serde(rename = "metadata")]
-    pub metadata: ::std::collections::HashMap<String, serde_json::Value>,
+    pub metadata: ::std::collections::HashMap<String, crate::models::Metadata>,
     #[serde(rename = "tags")]
-    pub tags: ::std::collections::HashMap<String, serde_json::Value>,
+    pub tags: ::std::collections::HashMap<String, crate::models::Metadata>,
     #[serde(rename = "version")]
     pub version: crate::models::MarloweVersion,
 }
 
 impl PostTransactionsRequest {
-    pub fn new(inputs: Vec<crate::models::Input>, metadata: ::std::collections::HashMap<String, serde_json::Value>, tags: ::std::collections::HashMap<String, serde_json::Value>, version: crate::models::MarloweVersion) -> PostTransactionsRequest {
+    pub fn new(inputs: Vec<crate::models::Input>, metadata: ::std::collections::HashMap<String, crate::models::Metadata>, tags: ::std::collections::HashMap<String, crate::models::Metadata>, version: crate::models::MarloweVersion) -> PostTransactionsRequest {
         PostTransactionsRequest {
             inputs,
             invalid_before: None,

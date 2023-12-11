@@ -15,7 +15,7 @@
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct WhenObject {
     #[serde(rename = "timeout")]
-    pub timeout: i64,
+    pub timeout: i32,
     #[serde(rename = "timeout_continuation")]
     pub timeout_continuation: Box<crate::models::ContractObject>,
     #[serde(rename = "when")]
@@ -24,7 +24,7 @@ pub struct WhenObject {
 
 impl WhenObject {
     /// Wait for an action to be performed and apply the matching contract when it does. Apply the timeout contract if no actions have been performed in the timeout period.
-    pub fn new(timeout: i64, timeout_continuation: crate::models::ContractObject, when: Vec<crate::models::CaseObject>) -> WhenObject {
+    pub fn new(timeout: i32, timeout_continuation: crate::models::ContractObject, when: Vec<crate::models::CaseObject>) -> WhenObject {
         WhenObject {
             timeout,
             timeout_continuation: Box::new(timeout_continuation),

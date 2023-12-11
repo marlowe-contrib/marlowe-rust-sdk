@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **token** | [**crate::models::Token**](Token.md) |  | 
 **r#else** | [**crate::models::Contract**](Contract.md) |  | 
 **r#if** | [**crate::models::Observation**](Observation.md) |  | 
-**timeout** | **i64** |  | 
+**timeout** | **i32** |  | 
 **timeout_continuation** | [**crate::models::Contract**](Contract.md) |  | 
 **when** | [**Vec<crate::models::Case>**](Case.md) |  | 
 **be** | [**crate::models::Value**](Value.md) |  | 
