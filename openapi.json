@@ -6265,7 +6265,7 @@
                       },
                       "required": ["genesisTimeUTC"],
                       "type": "object"
-                    }, 
+                    },
                     {
                       "properties": {
                         "blockHeader": {
