@@ -11,24 +11,9 @@
 /// PartyObject : A participant in a contract
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct PartyObject {
-    #[serde(rename = "role_token")]
-    pub role_token: String,
-    /// A cardano address, in Bech32 format
-    #[serde(rename = "address")]
-    pub address: String,
-    /// An arbitrary text identifier for an object in a Marlowe object bundle.
-    #[serde(rename = "ref")]
-    pub r#ref: String,
-}
-
-impl PartyObject {
-    /// A participant in a contract
-    pub fn new(role_token: String, address: String, r#ref: String) -> PartyObject {
-        PartyObject {
-            role_token,
-            address,
-            r#ref,
-        }
-    }
+#[serde(untagged)]
+pub enum PartyObject {
+    PartyRoleName(crate::models::PartyRoleName),
+    PartyAddress(crate::models::PartyAddress),
+    LabelRef(crate::models::LabelRef),
 }

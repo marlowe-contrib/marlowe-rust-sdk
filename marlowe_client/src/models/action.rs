@@ -11,42 +11,9 @@
 /// Action : A contract which becomes active when an action occurs.
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Action {
-    #[serde(rename = "deposits")]
-    pub deposits: Box<crate::models::Value>,
-    #[serde(rename = "into_account")]
-    pub into_account: Box<crate::models::Party>,
-    #[serde(rename = "of_token")]
-    pub of_token: Box<crate::models::Token>,
-    #[serde(rename = "party")]
-    pub party: Box<crate::models::Party>,
-    #[serde(rename = "choose_between")]
-    pub choose_between: Vec<crate::models::Bound>,
-    #[serde(rename = "for_choice")]
-    pub for_choice: Box<crate::models::ChoiceId>,
-    #[serde(rename = "notify_if")]
-    pub notify_if: Box<crate::models::Observation>,
-}
-
-impl Action {
-    /// A contract which becomes active when an action occurs.
-    pub fn new(
-        deposits: crate::models::Value,
-        into_account: crate::models::Party,
-        of_token: crate::models::Token,
-        party: crate::models::Party,
-        choose_between: Vec<crate::models::Bound>,
-        for_choice: crate::models::ChoiceId,
-        notify_if: crate::models::Observation,
-    ) -> Action {
-        Action {
-            deposits: Box::new(deposits),
-            into_account: Box::new(into_account),
-            of_token: Box::new(of_token),
-            party: Box::new(party),
-            choose_between,
-            for_choice: Box::new(for_choice),
-            notify_if: Box::new(notify_if),
-        }
-    }
+#[serde(untagged)]
+pub enum Action {
+    DepositAction(crate::models::DepositAction),
+    ChoiceAction(crate::models::ChoiceAction),
+    NotifyAction(crate::models::NotifyAction),
 }

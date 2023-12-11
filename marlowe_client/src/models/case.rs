@@ -11,26 +11,8 @@
 /// Case : A contract which becomes active when an action occurs.
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Case {
-    #[serde(rename = "case")]
-    pub case: Box<crate::models::Action>,
-    #[serde(rename = "then")]
-    pub then: Box<crate::models::Contract>,
-    #[serde(rename = "merkleized_then")]
-    pub merkleized_then: String,
-}
-
-impl Case {
-    /// A contract which becomes active when an action occurs.
-    pub fn new(
-        case: crate::models::Action,
-        then: crate::models::Contract,
-        merkleized_then: String,
-    ) -> Case {
-        Case {
-            case: Box::new(case),
-            then: Box::new(then),
-            merkleized_then,
-        }
-    }
+#[serde(untagged)]
+pub enum Case {
+    Then(crate::models::CaseThen),
+    MerkleizedThen(crate::models::CaseMerkleizedThen),
 }

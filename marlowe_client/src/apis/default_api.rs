@@ -1031,7 +1031,7 @@ pub async fn get_withdrawals(
     configuration: &configuration::Configuration,
     role_currency: Option<Vec<String>>,
     range: Option<&str>,
-) -> Result<crate::models::GetWithdrawalsResponse, Error<GetWithdrawalsError>> {
+) -> Result<(crate::models::GetWithdrawalsResponse, HeaderMap), Error<GetWithdrawalsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1072,10 +1072,14 @@ pub async fn get_withdrawals(
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
+    let headers = local_var_resp.headers().clone();
     let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+        Ok((
+            serde_json::from_str(&local_var_content).map_err(Error::from)?,
+            headers,
+        ))
     } else {
         let local_var_entity: Option<GetWithdrawalsError> =
             serde_json::from_str(&local_var_content).ok();
@@ -1091,7 +1095,7 @@ pub async fn get_withdrawals(
 /// Check if the server is running and ready to respond to requests.
 pub async fn healthcheck(
     configuration: &configuration::Configuration,
-) -> Result<(), Error<HealthcheckError>> {
+) -> Result<HeaderMap, Error<HealthcheckError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1109,10 +1113,11 @@ pub async fn healthcheck(
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
+    let headers = local_var_resp.headers().clone();
     let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        Ok(())
+        Ok(headers)
     } else {
         let local_var_entity: Option<HealthcheckError> =
             serde_json::from_str(&local_var_content).ok();
@@ -1130,7 +1135,7 @@ pub async fn submit_contract(
     configuration: &configuration::Configuration,
     contract_id: &str,
     text_envelope: Option<crate::models::TextEnvelope>,
-) -> Result<(), Error<SubmitContractError>> {
+) -> Result<HeaderMap, Error<SubmitContractError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1153,10 +1158,11 @@ pub async fn submit_contract(
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
+    let headers = local_var_resp.headers().clone();
     let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        Ok(())
+        Ok(headers)
     } else {
         let local_var_entity: Option<SubmitContractError> =
             serde_json::from_str(&local_var_content).ok();

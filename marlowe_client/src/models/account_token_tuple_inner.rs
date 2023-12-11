@@ -9,30 +9,4 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct AccountTokenTupleInner {
-    #[serde(rename = "role_token")]
-    pub role_token: String,
-    /// A cardano address, in Bech32 format
-    #[serde(rename = "address")]
-    pub address: String,
-    #[serde(rename = "currency_symbol")]
-    pub currency_symbol: String,
-    #[serde(rename = "token_name")]
-    pub token_name: String,
-}
-
-impl AccountTokenTupleInner {
-    pub fn new(
-        role_token: String,
-        address: String,
-        currency_symbol: String,
-        token_name: String,
-    ) -> AccountTokenTupleInner {
-        AccountTokenTupleInner {
-            role_token,
-            address,
-            currency_symbol,
-            token_name,
-        }
-    }
-}
+pub struct AccountTokenTupleInner(crate::models::Party, crate::models::Token);

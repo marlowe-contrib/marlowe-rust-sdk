@@ -11,23 +11,8 @@
 /// TokenObject : A token with a currency symbol (minting policy ID) and token name.
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct TokenObject {
-    #[serde(rename = "currency_symbol")]
-    pub currency_symbol: String,
-    #[serde(rename = "token_name")]
-    pub token_name: String,
-    /// An arbitrary text identifier for an object in a Marlowe object bundle.
-    #[serde(rename = "ref")]
-    pub r#ref: String,
-}
-
-impl TokenObject {
-    /// A token with a currency symbol (minting policy ID) and token name.
-    pub fn new(currency_symbol: String, token_name: String, r#ref: String) -> TokenObject {
-        TokenObject {
-            currency_symbol,
-            token_name,
-            r#ref,
-        }
-    }
+#[serde(untagged)]
+pub enum TokenObject {
+    Token(crate::models::Token),
+    LabelRef(crate::models::LabelRef),
 }

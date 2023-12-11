@@ -11,20 +11,8 @@
 /// Party : A participant in a contract
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Party {
-    #[serde(rename = "role_token")]
-    pub role_token: String,
-    /// A cardano address, in Bech32 format
-    #[serde(rename = "address")]
-    pub address: String,
-}
-
-impl Party {
-    /// A participant in a contract
-    pub fn new(role_token: String, address: String) -> Party {
-        Party {
-            role_token,
-            address,
-        }
-    }
+#[serde(untagged)]
+pub enum Party {
+    PartyRoleName(crate::models::PartyRoleName),
+    PartyAddress(crate::models::PartyAddress),
 }

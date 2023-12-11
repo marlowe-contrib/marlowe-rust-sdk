@@ -11,11 +11,11 @@
 /// Metadata : Arbitrary JSON-encoded transaction metadata
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Metadata {}
-
-impl Metadata {
-    /// Arbitrary JSON-encoded transaction metadata
-    pub fn new() -> Metadata {
-        Metadata {}
-    }
+#[serde(untagged)]
+pub enum Metadata {
+    Integer(i64),
+    HexMetadata(String),
+    TextMetadata(String),
+    MetadataArray(Vec<Metadata>),
+    AdditionalMetadata(std::collections::HashMap<String, Option<Metadata>>),
 }

@@ -9,10 +9,4 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct MarloweStateBoundValuesInnerInner {}
-
-impl MarloweStateBoundValuesInnerInner {
-    pub fn new() -> MarloweStateBoundValuesInnerInner {
-        MarloweStateBoundValuesInnerInner {}
-    }
-}
+pub struct MarloweStateBoundValuesInnerInner(String, i64);

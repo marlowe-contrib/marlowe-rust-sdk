@@ -18,14 +18,14 @@ pub struct ContractHeader {
     #[serde(rename = "contractId")]
     pub contract_id: String,
     #[serde(rename = "metadata")]
-    pub metadata: ::std::collections::HashMap<String, crate::models::Metadata>,
+    pub metadata: crate::models::Metadata,
     /// The hex-encoded minting policy ID for a native Cardano token
     #[serde(rename = "roleTokenMintingPolicyId")]
     pub role_token_minting_policy_id: String,
     #[serde(rename = "status")]
     pub status: crate::models::TxStatus,
     #[serde(rename = "tags")]
-    pub tags: ::std::collections::HashMap<String, crate::models::Metadata>,
+    pub tags: crate::models::Metadata,
     #[serde(rename = "version")]
     pub version: crate::models::MarloweVersion,
 }
@@ -33,10 +33,10 @@ pub struct ContractHeader {
 impl ContractHeader {
     pub fn new(
         contract_id: String,
-        metadata: ::std::collections::HashMap<String, crate::models::Metadata>,
+        metadata: crate::models::Metadata,
         role_token_minting_policy_id: String,
         status: crate::models::TxStatus,
-        tags: ::std::collections::HashMap<String, crate::models::Metadata>,
+        tags: crate::models::Metadata,
         version: crate::models::MarloweVersion,
     ) -> ContractHeader {
         ContractHeader {

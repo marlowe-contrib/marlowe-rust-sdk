@@ -13,11 +13,11 @@
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MarloweState {
     #[serde(rename = "accounts")]
-    pub accounts: Vec<Vec<crate::models::MarloweStateAccountsInnerInner>>,
+    pub accounts: Vec<crate::models::MarloweStateAccountsInnerInner>,
     #[serde(rename = "boundValues")]
-    pub bound_values: Vec<Vec<crate::models::MarloweStateBoundValuesInnerInner>>,
+    pub bound_values: Vec<crate::models::MarloweStateBoundValuesInnerInner>,
     #[serde(rename = "choices")]
-    pub choices: Vec<Vec<crate::models::MarloweStateChoicesInnerInner>>,
+    pub choices: Vec<crate::models::MarloweStateChoicesInnerInner>,
     #[serde(rename = "minTime")]
     pub min_time: i32,
 }
@@ -25,9 +25,9 @@ pub struct MarloweState {
 impl MarloweState {
     /// The on-chain state of a Marlowe contract.
     pub fn new(
-        accounts: Vec<Vec<crate::models::MarloweStateAccountsInnerInner>>,
-        bound_values: Vec<Vec<crate::models::MarloweStateBoundValuesInnerInner>>,
-        choices: Vec<Vec<crate::models::MarloweStateChoicesInnerInner>>,
+        accounts: Vec<crate::models::MarloweStateAccountsInnerInner>,
+        bound_values: Vec<crate::models::MarloweStateBoundValuesInnerInner>,
+        choices: Vec<crate::models::MarloweStateChoicesInnerInner>,
         min_time: i32,
     ) -> MarloweState {
         MarloweState {

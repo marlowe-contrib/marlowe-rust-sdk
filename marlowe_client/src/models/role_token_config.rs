@@ -9,43 +9,11 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct RoleTokenConfig {
+#[serde(untagged)]
+pub enum RoleTokenConfig {
     /// A cardano address, in Bech32 format
-    #[serde(rename = "address")]
-    pub address: String,
-    #[serde(rename = "metadata", skip_serializing_if = "Option::is_none")]
-    pub metadata: Option<crate::models::TokenMetadata>,
-    /// The type of script receiving the role token.
-    #[serde(rename = "script")]
-    pub script: Script,
-    #[serde(rename = "recipients")]
-    pub recipients: ::std::collections::HashMap<String, i64>,
-}
-
-impl RoleTokenConfig {
-    pub fn new(
-        address: String,
-        script: Script,
-        recipients: ::std::collections::HashMap<String, i64>,
-    ) -> RoleTokenConfig {
-        RoleTokenConfig {
-            address,
-            metadata: None,
-            script,
-            recipients,
-        }
-    }
-}
-
-/// The type of script receiving the role token.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Script {
-    #[serde(rename = "OpenRole")]
-    OpenRole,
-}
-
-impl Default for Script {
-    fn default() -> Script {
-        Self::OpenRole
-    }
+    Address(String),
+    AddressAndMetadata(crate::models::AddressAndMetadata),
+    MetadataAndScript(crate::models::MetadataAndScript),
+    MetadataAndRecipients(crate::models::MetadataAndRecipients),
 }

@@ -9,10 +9,4 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct MarloweStateAccountsInnerInner {}
-
-impl MarloweStateAccountsInnerInner {
-    pub fn new() -> MarloweStateAccountsInnerInner {
-        MarloweStateAccountsInnerInner {}
-    }
-}
+pub struct MarloweStateAccountsInnerInner(crate::models::AccountTokenTupleInner, i64);
