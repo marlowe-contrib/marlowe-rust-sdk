@@ -1,0 +1,20 @@
+[package]
+name = "marlowe_rust_sdk"
+version = "0.0.5"
+edition = "2021"
+authors = ["nicolas.luduena@txpipe.io"]
+description = "SDK for the Marlowe Runtime REST API"
+documentation = "https://github.com/marlowe-contrib/marlowe-rust-sdk/tree/main/marlowe_sdk"
+readme = "./README.md"
+homepage = "https://github.com/marlowe-contrib/marlowe-rust-sdk/tree/main/marlowe_rust"
+repository = "https://github.com/marlowe-contrib/marlowe-rust-sdk"
+license = "Apache-2.0"
+include = ["src/*.rs"]
+keywords = ["marlowe", "cardano", "sdk"]
+categories = ["web-programming"]
+
+[dependencies]
+marlowe_client = "0.0.5"
+
+[dev-dependencies]
+tokio = { version = "1.0.1", features = ["rt", "macros"] }
