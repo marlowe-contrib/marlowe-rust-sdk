@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set file path
-        run: echo "FILE_PATH=openapi.json" >> "$GITHUB_ENV"
+        run: echo "FILE_PATH=marlowe_sdk/openapi.json" >> "$GITHUB_ENV"
 
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -23,9 +23,6 @@ jobs:
 
       - name: Check if running the action is needed.
         run: echo "API_SPECS_CHANGED=$(git diff --name-only HEAD HEAD~1 | grep ^$FILE_PATH$)" >> "$GITHUB_ENV"
-
-      - name: Show variables
-        run: echo "HI $API_SPECS_CHANGED $FILE_PATH"
 
       - name: Set up Node.js
         if: ENV.API_SPECS_CHANGED
@@ -37,7 +34,7 @@ jobs:
 
       - name: Generate rust code from specs
         if: ENV.API_SPECS_CHANGED
-        run: npx @openapitools/openapi-generator-cli generate -g rust -i openapi.json  --additional-properties=packageName=marlowe_client -o marlowe_client
+        run: npx @openapitools/openapi-generator-cli generate -g rust -i marlowe_sdk/openapi.json  --additional-properties=packageName=marlowe_client -o marlowe_client
 
       - name: Create pull request
         if: ENV.API_SPECS_CHANGED

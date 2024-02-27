@@ -1,10 +1,17 @@
 [package]
 name = "marlowe_client"
 version = "0.0.5"
-authors = ["OpenAPI Generator team and contributors"]
-description = "REST API for Marlowe Runtime"
-license = "Apache 2.0"
+authors = ["OpenAPI Generator team and contributors", "nicolas.luduena@txpipe.io"]
+description = "HTTP client for the Marlowe Runtime REST API"
+documentation = "https://github.com/marlowe-contrib/marlowe-rust-sdk/tree/main/marlowe_client"
+readme = "./README.md"
+homepage = "https://github.com/marlowe-contrib/marlowe-rust-sdk/tree/main/marlowe_client"
+repository = "https://github.com/marlowe-contrib/marlowe-rust-sdk"
+license = "Apache-2.0"
 edition = "2018"
+include = ["src/**/**.rs"]
+keywords = ["marlowe", "cardano", "sdk"]
+categories = ["web-programming", "web-programming::http-client"]
 
 [dependencies]
 serde = "^1.0"
